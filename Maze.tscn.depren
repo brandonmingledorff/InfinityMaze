@@ -1,0 +1,50 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://road_tiles.tres" type="TileSet" id=1]
+[ext_resource path="res://scripts/Maze.gd" type="Script" id=2]
+[ext_resource path="res://HUD.tscn" type="PackedScene" id=3]
+
+
+[node name="Maze" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="HUD" parent="." instance=ExtResource( 3 )]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 699, 594 )
+current = true
+zoom = Vector2( 6, 6 )
+
+[node name="MovementTween" type="Tween" parent="Camera2D"]
+
+[node name="ZoomTween" type="Tween" parent="Camera2D"]
+
+[node name="BackgroundCanvas" type="CanvasLayer" parent="Camera2D"]
+layer = -1
+
+[node name="ColorBackground" type="ColorRect" parent="Camera2D/BackgroundCanvas"]
+margin_left = -671.34
+margin_top = -462.287
+margin_right = 1959.66
+margin_bottom = 1222.71
+color = Color( 0.898039, 0.403922, 0.231373, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+format = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+margin_left = -10.0
+margin_top = -10.0
+color = Color( 1, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

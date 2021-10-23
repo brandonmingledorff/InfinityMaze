@@ -1,0 +1,424 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://scripts/GameModeMenu.gd" type="Script" id=2]
+[ext_resource path="res://assets/main-menu2.png" type="Texture" id=3]
+[ext_resource path="res://assets/fonts/Hardpixel.OTF" type="DynamicFontData" id=4]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 3 )
+region = Rect2( 223, 159, 34, 57 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 24
+font_data = ExtResource( 4 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 3 )
+region = Rect2( 313, 218, 26, 9 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 3 )
+region = Rect2( 285, 218, 26, 9 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 40
+font_data = ExtResource( 4 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 3 )
+region = Rect2( 285, 218, 26, 9 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 3 )
+region = Rect2( 285, 218, 26, 9 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 3 )
+region = Rect2( 285, 218, 26, 9 )
+
+[node name="GameModeMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RelaxedMode" type="Control" parent="."]
+anchor_left = 0.07
+anchor_top = 0.028
+anchor_right = 0.336
+anchor_bottom = 0.819
+margin_left = 0.400002
+margin_top = -0.16
+margin_right = -0.0799866
+margin_bottom = 0.319946
+rect_min_size = Vector2( 340, 570 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="ColorRect" type="TextureRect" parent="RelaxedMode"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 340, 570 )
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture = SubResource( 1 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="RelaxedMode"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 230.0
+margin_right = -10.0
+margin_bottom = -290.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Relaxed"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="Desc" type="Label" parent="RelaxedMode"]
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -160.0
+margin_top = 280.0
+margin_right = 160.0
+margin_bottom = -170.0
+rect_min_size = Vector2( 320, 120 )
+size_flags_horizontal = 4
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Collisions and lives are disabled. Rewards are decreased."
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Level" type="Label" parent="RelaxedMode"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 400.0
+margin_right = -10.0
+margin_bottom = -120.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Level: 1"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="PlayRelaxed" type="TextureButton" parent="RelaxedMode"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 40.0
+margin_top = 450.0
+margin_right = -40.0
+margin_bottom = -30.0
+rect_min_size = Vector2( 260, 90 )
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 4
+texture_normal = SubResource( 4 )
+texture_pressed = SubResource( 6 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="RelaxedMode/PlayRelaxed"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Play"
+align = 1
+valign = 1
+
+[node name="ClassicMode" type="Control" parent="."]
+anchor_left = 0.367
+anchor_top = 0.028
+anchor_right = 0.633
+anchor_bottom = 0.819
+margin_left = 0.240021
+margin_top = -0.16
+margin_right = -0.239929
+margin_bottom = 0.319946
+rect_min_size = Vector2( 340, 570 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="ColorRect" type="TextureRect" parent="ClassicMode"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 340, 570 )
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture = SubResource( 1 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="Title" type="Label" parent="ClassicMode"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 230.0
+margin_right = -10.0
+margin_bottom = -290.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Classic"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="Desc" type="Label" parent="ClassicMode"]
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -160.0
+margin_top = 280.0
+margin_right = 160.0
+margin_bottom = -170.0
+rect_min_size = Vector2( 320, 120 )
+size_flags_horizontal = 4
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Three lives. The most balanced way to play. Rewards are normal."
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="Level" type="Label" parent="ClassicMode"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 400.0
+margin_right = -10.0
+margin_bottom = -120.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Level: 1"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="PlayClassic" type="TextureButton" parent="ClassicMode"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 40.0
+margin_top = 450.0
+margin_right = -40.0
+margin_bottom = -30.0
+rect_min_size = Vector2( 260, 90 )
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 4
+texture_normal = SubResource( 4 )
+texture_pressed = SubResource( 7 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="Label" type="Label" parent="ClassicMode/PlayClassic"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Play"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HardcoreMode" type="Control" parent="."]
+anchor_left = 0.664
+anchor_top = 0.028
+anchor_right = 0.93
+anchor_bottom = 0.819
+margin_left = 0.0800171
+margin_top = -0.16
+margin_right = -0.400024
+margin_bottom = 0.319946
+rect_min_size = Vector2( 340, 570 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="ColorRect" type="TextureRect" parent="HardcoreMode"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 340, 570 )
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture = SubResource( 1 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Title" type="Label" parent="HardcoreMode"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 230.0
+margin_right = -10.0001
+margin_bottom = -290.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Hardcore"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="Desc" type="Label" parent="HardcoreMode"]
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -160.0
+margin_top = 280.0
+margin_right = 160.0
+margin_bottom = -170.0
+rect_min_size = Vector2( 320, 120 )
+size_flags_horizontal = 4
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "One life, one shot. See how far you can get. Rewards are increased."
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="Level" type="Label" parent="HardcoreMode"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 400.0
+margin_right = -10.0001
+margin_bottom = -120.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Level: 1"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="PlayHardcore" type="TextureButton" parent="HardcoreMode"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 40.0
+margin_top = 450.0
+margin_right = -40.0001
+margin_bottom = -30.0
+rect_min_size = Vector2( 260, 90 )
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 4
+texture_normal = SubResource( 4 )
+texture_pressed = SubResource( 8 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="Label" type="Label" parent="HardcoreMode/PlayHardcore"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Play"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackButton" type="TextureButton" parent="."]
+anchor_left = 0.5
+anchor_top = 0.91
+anchor_right = 0.5
+anchor_bottom = 0.91
+margin_left = -130.0
+margin_top = -45.2
+margin_right = 130.0
+margin_bottom = 44.8
+rect_min_size = Vector2( 260, 90 )
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 4
+texture_normal = SubResource( 4 )
+texture_pressed = SubResource( 9 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="Label" type="Label" parent="BackButton"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Back"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="RelaxedMode/PlayRelaxed" to="." method="_on_PlayRelaxed_pressed"]
+[connection signal="pressed" from="ClassicMode/PlayClassic" to="." method="_on_PlayClassic_pressed"]
+[connection signal="pressed" from="HardcoreMode/PlayHardcore" to="." method="_on_PlayHardcore_pressed"]
+[connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]

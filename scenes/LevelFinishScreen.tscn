@@ -1,0 +1,349 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://assets/fonts/Hardpixel.OTF" type="DynamicFontData" id=1]
+[ext_resource path="res://scripts/LevelFinishScreen.gd" type="Script" id=2]
+[ext_resource path="res://assets/main-menu2.png" type="Texture" id=3]
+[ext_resource path="res://assets/present1.png" type="Texture" id=4]
+[ext_resource path="res://assets/present-open.png" type="Texture" id=5]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 3 )
+region = Rect2( 31, 79, 66, 50 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 42
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 36
+font_data = ExtResource( 1 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 3 )
+region = Rect2( 34, 180, 29, 10 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 36
+font_data = ExtResource( 1 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 3 )
+region = Rect2( 65, 180, 29, 10 )
+
+[sub_resource type="Animation" id=7]
+resource_name = "shake"
+length = 2.4
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 0.8, 1.1, 1.4, 1.7, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 350, 100 ), Vector2( 180, 100 ), Vector2( 180, 100 ), Vector2( 180, 100 ), Vector2( 180, 100 ), Vector2( 180, 100 ), Vector2( 180, 100 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rect_rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 0.8, 1.1, 1.4, 1.7, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, 20.0, -20.0, 20.0, -20.0, 0.0 ]
+}
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 3 )
+region = Rect2( 7, 61, 6, 6 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 40
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=10]
+resource_name = "fly"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 77, 195 ), Vector2( 77, 80 ) ]
+}
+
+[sub_resource type="ParticlesMaterial" id=11]
+emission_shape = 2
+emission_box_extents = Vector3( 1, 250, 0 )
+flag_disable_z = true
+direction = Vector3( 1, -1, 0 )
+spread = 60.0
+gravity = Vector3( 0, 98, 0 )
+initial_velocity = 320.0
+angular_velocity = 100.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+damping = 80.0
+scale = 5.0
+hue_variation = 1.0
+hue_variation_random = 1.0
+
+[sub_resource type="ParticlesMaterial" id=12]
+emission_shape = 2
+emission_box_extents = Vector3( 1, 250, 0 )
+flag_disable_z = true
+direction = Vector3( -1, -1, 0 )
+spread = 70.0
+gravity = Vector3( 0, 98, 0 )
+initial_velocity = 320.0
+angular_velocity = 100.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+damping = 80.0
+scale = 5.0
+hue_variation = 1.0
+hue_variation_random = 1.0
+
+[node name="LevelFinishScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LevelFinishTexture" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -330.0
+margin_top = -250.0
+margin_right = 330.0
+margin_bottom = 250.0
+rect_min_size = Vector2( 660, 500 )
+texture = SubResource( 1 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LevelCompleteLabel" type="Label" parent="LevelFinishTexture"]
+margin_left = 30.0
+margin_top = 30.0
+margin_right = 620.0
+margin_bottom = 120.0
+rect_min_size = Vector2( 590, 90 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Level Complete!"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TotalCoinsLabel" type="Label" parent="LevelFinishTexture"]
+margin_left = 120.0
+margin_top = 180.0
+margin_right = 310.0
+margin_bottom = 250.0
+rect_min_size = Vector2( 190, 70 )
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "100"
+align = 1
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CoinLabel" type="Label" parent="LevelFinishTexture"]
+margin_left = 120.0
+margin_top = 250.0
+margin_right = 310.0
+margin_bottom = 320.0
+rect_min_size = Vector2( 190, 70 )
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "(+10)"
+align = 1
+
+[node name="GiftLabel" type="Label" parent="LevelFinishTexture"]
+margin_left = 440.0
+margin_top = 180.0
+margin_right = 620.0
+margin_bottom = 320.0
+rect_min_size = Vector2( 180, 140 )
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "1"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NextLevelButton" type="TextureButton" parent="LevelFinishTexture"]
+margin_left = 30.0
+margin_top = 360.0
+margin_right = 320.0
+margin_bottom = 460.0
+rect_min_size = Vector2( 290, 100 )
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 4
+texture_normal = SubResource( 4 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="LevelFinishTexture/NextLevelButton"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Next Level"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MainMenuButton" type="TextureButton" parent="LevelFinishTexture"]
+margin_left = 340.0
+margin_top = 360.0
+margin_right = 630.0
+margin_bottom = 460.0
+rect_min_size = Vector2( 290, 100 )
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 4
+texture_normal = SubResource( 6 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="LevelFinishTexture/MainMenuButton"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Main Menu"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GiftTexture" type="TextureRect" parent="LevelFinishTexture"]
+visible = false
+anchor_left = 0.758
+anchor_top = 0.5
+anchor_right = 0.758
+anchor_bottom = 0.5
+margin_left = -150.28
+margin_top = -150.0
+margin_right = 149.72
+margin_bottom = 150.0
+rect_min_size = Vector2( 300, 300 )
+rect_pivot_offset = Vector2( 150, 150 )
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="LevelFinishTexture/GiftTexture"]
+anims/shake = SubResource( 7 )
+
+[node name="OpenGiftTexture" type="TextureRect" parent="LevelFinishTexture"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -150.0
+margin_top = -225.0
+margin_right = 150.0
+margin_bottom = 225.0
+rect_min_size = Vector2( 300, 450 )
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PrizeContainer" type="HBoxContainer" parent="LevelFinishTexture/OpenGiftTexture"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -73.0
+margin_top = -145.0
+margin_right = 73.0
+margin_bottom = -84.9998
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="LevelFinishTexture/OpenGiftTexture/PrizeContainer"]
+margin_right = 60.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 60, 60 )
+texture = SubResource( 8 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="LevelFinishTexture/OpenGiftTexture/PrizeContainer"]
+margin_left = 64.0
+margin_top = -1.0
+margin_right = 146.0
+margin_bottom = 59.0
+rect_min_size = Vector2( 0, 60 )
+custom_fonts/font = SubResource( 9 )
+text = "+100"
+align = 1
+valign = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="LevelFinishTexture/OpenGiftTexture/PrizeContainer"]
+anims/fly = SubResource( 10 )
+
+[node name="LeftConfetti" type="Particles2D" parent="."]
+position = Vector2( 0, 360 )
+emitting = false
+amount = 75
+lifetime = 6.0
+one_shot = true
+explosiveness = 0.9
+visibility_rect = Rect2( 0, -360, 600, 720 )
+process_material = SubResource( 11 )
+
+[node name="RightConfetti" type="Particles2D" parent="."]
+position = Vector2( 1280.08, 360 )
+emitting = false
+amount = 75
+lifetime = 6.0
+one_shot = true
+explosiveness = 0.9
+visibility_rect = Rect2( 0, -360, -600, 720 )
+process_material = SubResource( 12 )
+[connection signal="pressed" from="LevelFinishTexture/NextLevelButton" to="." method="_on_NextLevelButton_pressed"]
+[connection signal="pressed" from="LevelFinishTexture/MainMenuButton" to="." method="_on_MainMenuButton_pressed"]

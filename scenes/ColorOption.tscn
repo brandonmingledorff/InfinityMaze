@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scripts/ColorOption.gd" type="Script" id=1]
+[ext_resource path="res://assets/sprites/color-picker.png" type="Texture" id=2]
+[ext_resource path="res://scenes/HoverLabel.tscn" type="PackedScene" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 20.0411, 20.0272 )
+
+[node name="ColorOption" type="TextureButton"]
+pause_mode = 2
+margin_right = 40.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 70, 70 )
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource( 2 )
+expand = true
+stretch_mode = 5
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
+position = Vector2( 20, 20 )
+shape = SubResource( 1 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 2
+offset = Vector2( 250, 0 )
+transform = Transform2D( 1, 0, 0, 1, 250, 0 )
+
+[node name="HoverLabel" parent="CanvasLayer" instance=ExtResource( 3 )]
+visible = false
+margin_left = -180.162
+margin_top = 6.63445
+margin_right = -100.162
+margin_bottom = 26.6344
+[connection signal="mouse_entered" from="." to="." method="_on_Button_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_Button_mouse_exited"]
+[connection signal="pressed" from="." to="." method="_on_ColorOption_pressed"]

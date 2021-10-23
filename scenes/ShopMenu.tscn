@@ -1,0 +1,267 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://scenes/ShopOption.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scripts/ShopMenu.gd" type="Script" id=2]
+[ext_resource path="res://assets/main-menu2.png" type="Texture" id=4]
+[ext_resource path="res://assets/fonts/Hardpixel.OTF" type="DynamicFontData" id=5]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 4 )
+region = Rect2( 34, 49, 2, 4 )
+
+[sub_resource type="StyleBoxTexture" id=2]
+texture = SubResource( 1 )
+region_rect = Rect2( 0, 0, 1, 1 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 4 )
+region = Rect2( 37, 49, 2, 4 )
+
+[sub_resource type="StyleBoxTexture" id=4]
+texture = SubResource( 3 )
+region_rect = Rect2( 0, 0, 2, 4 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 4 )
+region = Rect2( 37, 49, 2, 4 )
+
+[sub_resource type="StyleBoxTexture" id=6]
+texture = SubResource( 5 )
+region_rect = Rect2( 0, 0, 2, 4 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 4 )
+region = Rect2( 30, 49, 2, 21 )
+
+[sub_resource type="StyleBoxTexture" id=8]
+texture = SubResource( 7 )
+region_rect = Rect2( -18, 0, 20, 7 )
+expand_margin_left = 16.0
+
+[sub_resource type="StyleBoxEmpty" id=9]
+
+[sub_resource type="Theme" id=10]
+VScrollBar/icons/decrement = null
+VScrollBar/icons/decrement_highlight = null
+VScrollBar/icons/increment = null
+VScrollBar/icons/increment_highlight = null
+VScrollBar/styles/grabber = SubResource( 2 )
+VScrollBar/styles/grabber_highlight = SubResource( 4 )
+VScrollBar/styles/grabber_pressed = SubResource( 6 )
+VScrollBar/styles/scroll = SubResource( 8 )
+VScrollBar/styles/scroll_focus = SubResource( 9 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 4 )
+region = Rect2( 127, 79, 82, 66 )
+
+[sub_resource type="DynamicFont" id=12]
+size = 48
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=13]
+size = 40
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=14]
+size = 30
+font_data = ExtResource( 5 )
+
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 4 )
+region = Rect2( 16, 48, 9, 9 )
+
+[node name="ShopMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = SubResource( 10 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Texture" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -410.0
+margin_top = -330.0
+margin_right = 410.0
+margin_bottom = 330.0
+rect_min_size = Vector2( 820, 660 )
+texture = SubResource( 11 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ShopLabel" type="Label" parent="Texture"]
+margin_left = 30.0
+margin_top = 30.0
+margin_right = 40.0
+margin_bottom = 14.0
+rect_min_size = Vector2( 330, 80 )
+custom_fonts/font = SubResource( 12 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Shop"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BalanceLabel" type="Label" parent="Texture"]
+margin_left = 480.0
+margin_top = 30.0
+margin_right = 40.0
+margin_bottom = 14.0
+rect_min_size = Vector2( 210, 80 )
+custom_fonts/font = SubResource( 13 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "100"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorsLabel" type="Label" parent="Texture"]
+margin_left = 30.0
+margin_top = 240.0
+margin_right = 40.0
+margin_bottom = 14.0
+rect_min_size = Vector2( 160, 50 )
+custom_fonts/font = SubResource( 14 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Colors"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SpritesLabel" type="Label" parent="Texture"]
+margin_left = 30.0
+margin_top = 500.0
+margin_right = 40.0
+margin_bottom = 14.0
+rect_min_size = Vector2( 160, 50 )
+custom_fonts/font = SubResource( 14 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Sprites"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorScroller" type="ScrollContainer" parent="Texture"]
+margin_left = 260.0
+margin_top = 160.0
+margin_right = 750.0
+margin_bottom = 360.0
+rect_min_size = Vector2( 520, 200 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorGrid" type="GridContainer" parent="Texture/ColorScroller"]
+margin_right = 430.0
+margin_bottom = 340.0
+custom_constants/vseparation = 20
+custom_constants/hseparation = 20
+columns = 5
+
+[node name="ShopOption" parent="Texture/ColorScroller/ColorGrid" instance=ExtResource( 1 )]
+
+[node name="ShopOption2" parent="Texture/ColorScroller/ColorGrid" instance=ExtResource( 1 )]
+margin_left = 90.0
+margin_right = 160.0
+
+[node name="ShopOption3" parent="Texture/ColorScroller/ColorGrid" instance=ExtResource( 1 )]
+margin_left = 180.0
+margin_right = 250.0
+
+[node name="ShopOption4" parent="Texture/ColorScroller/ColorGrid" instance=ExtResource( 1 )]
+margin_left = 270.0
+margin_right = 340.0
+
+[node name="ShopOption5" parent="Texture/ColorScroller/ColorGrid" instance=ExtResource( 1 )]
+margin_left = 360.0
+margin_right = 430.0
+
+[node name="ShopOption6" parent="Texture/ColorScroller/ColorGrid" instance=ExtResource( 1 )]
+margin_top = 120.0
+margin_bottom = 220.0
+
+[node name="ShopOption7" parent="Texture/ColorScroller/ColorGrid" instance=ExtResource( 1 )]
+margin_left = 90.0
+margin_top = 120.0
+margin_right = 160.0
+margin_bottom = 220.0
+
+[node name="ShopOption8" parent="Texture/ColorScroller/ColorGrid" instance=ExtResource( 1 )]
+margin_left = 180.0
+margin_top = 120.0
+margin_right = 250.0
+margin_bottom = 220.0
+
+[node name="ShopOption9" parent="Texture/ColorScroller/ColorGrid" instance=ExtResource( 1 )]
+margin_left = 270.0
+margin_top = 120.0
+margin_right = 340.0
+margin_bottom = 220.0
+
+[node name="ShopOption10" parent="Texture/ColorScroller/ColorGrid" instance=ExtResource( 1 )]
+margin_left = 360.0
+margin_top = 120.0
+margin_right = 430.0
+margin_bottom = 220.0
+
+[node name="ShopOption11" parent="Texture/ColorScroller/ColorGrid" instance=ExtResource( 1 )]
+margin_top = 240.0
+margin_bottom = 340.0
+
+[node name="ShopOption12" parent="Texture/ColorScroller/ColorGrid" instance=ExtResource( 1 )]
+margin_left = 90.0
+margin_top = 240.0
+margin_right = 160.0
+margin_bottom = 340.0
+
+[node name="ShopOption13" parent="Texture/ColorScroller/ColorGrid" instance=ExtResource( 1 )]
+margin_left = 180.0
+margin_top = 240.0
+margin_right = 250.0
+margin_bottom = 340.0
+
+[node name="SpriteScroller" type="ScrollContainer" parent="Texture"]
+margin_left = 260.0
+margin_top = 420.0
+margin_right = 750.0
+margin_bottom = 360.0
+rect_min_size = Vector2( 520, 200 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SpriteGrid" type="GridContainer" parent="Texture/SpriteScroller"]
+custom_constants/vseparation = 20
+custom_constants/hseparation = 20
+columns = 5
+
+[node name="CloseButton" type="TextureButton" parent="Texture"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -90.0
+margin_bottom = 90.0
+rect_min_size = Vector2( 90, 90 )
+mouse_default_cursor_shape = 2
+texture_normal = SubResource( 15 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Texture/CloseButton" to="." method="_on_CloseButton_pressed"]
